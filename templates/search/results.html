@@ -1,0 +1,65 @@
+{% extends 'search/base.html' %}
+{% block content %}
+{% if message %}
+    <ul>
+    {% for k in message %}
+        <li>
+        {{ k }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+        <div class="main" style="margin-top: 51px; ">
+        <div class="container-fluid" style="margin-top: 74px;">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Results
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>chromosme id</th>
+                                            <th>chromosome</th>
+                                            <th>gene id</th>
+                                            <th>view graph</th>
+                                            <th>View Detail</th>
+                                        </tr>
+                                    </thead>
+                                    {% if sr %}
+                                        {% for k,j in sr %}
+                                    <tbody>
+                                        <tr>
+                                        <form action="/result/{{ k.id }}/" method="post" >
+                                            {% csrf_token %}
+                                            <td>{{ k.id }}</td>
+                                            <td>{{ k.chromosome }}</td>
+                                            <td>{{ k.gene_id }} </td>
+                                            <td><a href="{{ j }}"> view in ensemble</a></td>
+                                            <td><button type="submit" value="{{ k.id }}" name="q">view more</button></td>
+                                        </form>
+                                        </tr>
+                                       {% endfor %}
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+            </div>
+
+        </div>
+        </div>
+{% endblock %}

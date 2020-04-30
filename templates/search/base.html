@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>PRDB</title>
+    <!-- Bootstrap -->
+
+
+
+
+    <link href="{% static 'search/plugins/bootstrap/css/bootstrap.css'  %}" rel="stylesheet" >
+
+    <link href="{% static 'search/css/style.css' %}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="asset/js/html5shiv.min.js"></script>
+      <script src="asset/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!--   nave bar start-->
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="#">PRDB</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="{% url 'contact' %} ">Contact</a></li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!--    navbar end-->
+     <div class="sidenav">
+
+        <form class="navbar-form navbar-left" id="searchform" action='/result/' method="post" accept-charset="utf-8">
+
+            <div class="form-group">
+                {% csrf_token %}
+                <input type="text" class="form-control" name="srh" placeholder="Search" style="width: 152px;">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            <div class="radio-btn">
+                <div class="radio">
+                    <label><input type="radio" name="optradio" checked>search by id</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio">search by specie</label>
+                </div>
+                <div class="radio ">
+                    <label><input type="radio" name="optradio" >search by experiment</label>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    {% block content %}
+    {% endblock %}
+
+
+            <div class="row">
+            </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <script src="{% static 'search/js/jquery.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script src="{% static 'search/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+
+
+    <script src="{% static 'search/js/app.js' %}"></script>
+
+</body>
+
+</html>

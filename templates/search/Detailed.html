@@ -1,0 +1,206 @@
+{% extends 'search/base.html' %}
+{% block content %}
+ <div class="main" style="margin-top: 51px; ">
+        <div class="container-fluid" style="margin-top: 74px;">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Detail
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+{#                                    <thead>#}
+{#                                        <tr>#}
+{#                                            <th>chromosme id</th>#}
+{#                                            <th>chromosome</th>#}
+{#                                            <th>gene id</th>#}
+{#                                            <th>view graph</th>#}
+{#                                        </tr>#}
+{#                                    </thead>#}
+                                    {% if sr %}
+                                        {% for k in sr %}
+                                            <thead>
+                                            <tr>
+                                             <th>chromosme id</th>
+                                             <th>{{ k.id }}</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                             <tr>
+                                             <th>chromosme</th>
+                                             <th>{{ k.chromosome }}</th>
+
+                                            </tr>
+                                            </tbody>
+
+                                               <thead>
+                                              <tr>
+                                             <th>number pas</th>
+                                             <th>{{ k.number_pas }}</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                             <tr>
+                                             <th>gene id</th>
+                                             <th>{{ k.gene_id }}</th>
+
+                                            </tr>
+                                            </tbody>
+                                              <thead>
+
+                                               <tr>
+                                             <th>cluster size</th>
+                                             <th>{{ k.cluster_size}}</th>
+
+                                            </tr>
+
+                                            </thead>
+
+                                            <tbody>
+                                             <tr>
+                                             <th>strand</th>
+                                             <th>{{ k.strand}}</th>
+
+                                            </tr>
+                                            </tbody>
+                                              <thead>
+
+
+                                                <tr>
+                                             <th>transcript id</th>
+                                             <th>{{ k.transcript_id}}</th>
+
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                             <tr>
+                                             <th>pac support</th>
+                                             <th>{{ k.pac_suppoort }}</th>
+
+                                            </tr>
+                                            </tbody>
+                                              <thead>
+                                            <tr>
+                                             <th>cluster_support</th>
+                                             <th>{{ k.cluster_support}}</th>
+
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                             <tr>
+                                             <th>region</th>
+                                             <th>{{ k.region }}</th>
+
+                                            </tr>
+                                            </tbody>
+                                              <thead>
+
+                                            <tr>
+                                             <th>gene biotype</th>
+                                             <th>{{ k.gene_biotype }}</th>
+
+                                            </tr>
+
+
+                                            </thead>
+
+                                            <tbody>
+
+                                              <tr>
+                                             <th>utr length</th>
+                                             <th>{{ k.utr_length}}</th>
+
+                                            </tr>
+
+                                            </tbody>
+                                              <thead>
+                                            <tr>
+                                             <th>transcript code</th>
+                                             <th>{{ k.transcript_code}}</th>
+
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                             <tr>
+                                             <th>gene code</th>
+                                             <th>{{ k.gene_cord }}</th>
+
+                                            </tr>
+                                            </tbody>
+                                              <thead>
+
+                                              <tr>
+                                             <th>Distance</th>
+                                             <th>{% for i in ab %}
+                                                 {{ i.distance }} -
+                                                 {% endfor %}</th>
+
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr>
+                                             <th>pac</th>
+                                             <th> {% for i in ab %}
+                                                 {{ i.pac}}-
+                                                 {% endfor %} </th>
+
+                                            </tr>
+                                            </tbody>
+                                              <thead>
+
+
+                                            <tr>
+                                             <th>cluster_end</th>
+                                             <th>{% for i in ab %}
+                                                 {{ i.cluster_end }} -
+                                                 {% endfor %}</th>
+
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            <tr>
+                                             <th>cluster_start</th>
+                                             <th>{% for i in ab %}
+                                                 {{ i.cluster_start }}-
+                                                 {% endfor %}</th>
+
+                                            </tr>
+                                            </tbody>
+{#                                    <tbody>#}
+{#                                        <tr>#}
+{##}
+{#                                            <td>{{ k.id }}</td>#}
+{#                                            <td>{{ k.chromosome }}</td>#}
+{#                                           <td>{{ k.gene_id }} </td>#}
+{##}
+{##}
+{#                                        </tr>#}
+                                       {% endfor %}
+                                    {% endif %}
+                                    
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+            </div>
+
+        </div>
+        </div>
+{% endblock %}
