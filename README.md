@@ -10,5 +10,5 @@ It also includes genome and number of poly a sites.
 <li>To graphicaly manipulate data we have used chart.js.</li>
 <li>For database we used sqlite3.</li>
 <li> backend was developed in django python</li>
-<li> we have used rest api of ensemble as well<li>
+<li> we have used rest api of ensemble as well</li>
 </ol>
